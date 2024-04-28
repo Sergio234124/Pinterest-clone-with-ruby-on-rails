@@ -1,0 +1,19 @@
+<div class="navbar navbar-default m-0 p-10 flex min-w-screen">
+     <%= link_to "Pinterested." , root_path,class:'font-extrabold text-3xl transition duration:700 hover:no-underline hover:text-red-500'%>
+    <div class="w-screen flex justify-end">
+        <% if user_signed_in? %>
+            <b>
+                <%= link_to 'Edit user', edit_user_registration_path %>
+                <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+            </b>
+        <% else %>
+            <b>
+                <%= link_to 'Sign up', new_user_registration_path %>
+                <%= link_to 'Log in', new_user_session_path %>
+            </b>
+        <% end %>
+
+        <%= link_to 'Home', root_path, class: 'btn btn-primary' %>
+        <%= link_to 'About Us', home_about_path, class: 'btn btn-default' %>
+    </div>
+</div>
