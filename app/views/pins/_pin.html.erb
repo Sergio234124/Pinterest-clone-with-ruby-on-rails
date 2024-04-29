@@ -6,7 +6,10 @@
 
   <% if action_name != "show" %>
     <%= link_to "Show this pin", pin, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this pin", edit_pin_path(pin), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <% if pin.user == current_user%>
+      <%= link_to "Edit this pin", edit_pin_path(pin), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to "Destroy this pin", pin, method: :delete, data: {confirm: "Are you sure?"}, class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%end%>
     <hr class="mt-6">
   <% end %>
 </div>

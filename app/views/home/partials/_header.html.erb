@@ -3,8 +3,12 @@
     <div class="w-screen flex justify-end">
         <% if user_signed_in? %>
             <b>
+                <%= link_to 'Pins', pins_path %>
+                <%= link_to 'Add Pin', new_pin_path %>
+            </b>
+            <b>
                 <%= link_to 'Edit user', edit_user_registration_path %>
-                <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+                <%= link_to 'Log out',  destroy_user_session_path, method: :delete %>
             </b>
         <% else %>
             <b>
